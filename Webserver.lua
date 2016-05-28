@@ -32,7 +32,8 @@
 				
 			until not line           
 			
-			file.close();      
+			file.close(); 
+		
 		else
 			conn:send(responseHeader("404 Not Found","text/html"));          
 			conn:send("Page not found");              

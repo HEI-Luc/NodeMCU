@@ -1,1 +1,1 @@
-SSID:WEP
+SSID:WEP;

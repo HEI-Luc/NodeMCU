@@ -1,12 +1,13 @@
 
-uart.setup(0,115200,8,0,1,0)
+
+uart.setup(0,115200,8,0,1,1)
 --uart.setup(0,921600,8,0,1,0)
+tmr.delay(200)
+
 
 print("Baud Rate set to 115200 by DDrmx")
 
-print("\n")
-print("NodeMCU Started")
-
+print("\nNodeMCU Started")
 
 
 local exefile= "Connect"
@@ -26,9 +27,7 @@ for i, f in ipairs(luaFile) do
       print("Remove File:"..f)
       file.remove(f)
 	  
-	  dofile(exefile..".lc")
-		
-		
+	  --dofile(exefile..".lc")		
     end
  end
  
@@ -51,14 +50,9 @@ for i, f in ipairs(luaFile) do
       print("Remove File:"..f)
       file.remove(f)
 	  
-	  dofile(exefile..".lc")
-		
-		
+	  --dofile(exefile..".lc")
     end
  end
- 
-
- 
  
 luaFile = nil;
 lcFile = nil;
@@ -67,36 +61,12 @@ lcFile = nil;
 	if gpio.read(1) == 1 then
 
 		if file.open("Connect.lc") then
+			 file.close()
 			--print("Connect.lc non voulu")
 			dofile("Connect.lc")
 		else
 			print("Connect.lc not exist")
 		end
-		
-		if file.open("Webserver.lc") then
-			--print("Webserver.lc non voulu")
-			dofile("Webserver.lc")
-		else
-			print("Webserver.lc not exist")
-		end
-		
-		exefile= "Func"
-		if file.open(exefile..".lc") then
-			print(exefile..".lc non voulu")
-			--dofile(exefile..".lc")
-		else
-			print(exefile..".lc not exist")
-		end
-
-		exefile= "Rainbow"
-		if file.open(exefile..".lc") then
-			print(exefile..".lc non voulu")
-			--dofile(exefile..".lc")
-		else
-			print(exefile..".lc not exist")
-		end
-		
-		
 	end
 
 exefile=nil;
