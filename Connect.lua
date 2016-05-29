@@ -25,7 +25,7 @@
 				--print("")
 				print("\tEchec de connexion")
 				
-				tmr.alarm(5, 1000, tmr.ALARM_SINGLE, TryConnect)
+				tmr.alarm(5, 2000, tmr.ALARM_SINGLE, TryConnect)
 			else
 			
 				print("Connection reussi")
